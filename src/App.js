@@ -41,7 +41,16 @@ function App() {
   }
 
   const check = () => {
-  return answer === result ? setResolution('Correct'):setResolution('inCorrect')
+  //return answer === result ? setResolution('Correct'):setResolution('inCorrect')
+    if (answer === result) {
+      setResolution('Correct')
+    }
+    else {
+      setResolution('Incorrect')
+    }
+
+    shake()
+    setAnswer('')
   }
   return (
     <div className="App">
