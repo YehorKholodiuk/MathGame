@@ -27,6 +27,7 @@ function App() {
   const [operand, setOperand] = useState(operandInitial)
   const [n1, setN1] = useState(n1Initial)
   const [n2, setN2] = useState(n2Initial)
+  const [answer, setAnswer] = useState()
   const [result, setResult] = useState(calculate(n1Initial,n2Initial,operandInitial))
 
   const shake = () => {
@@ -37,9 +38,14 @@ function App() {
     setOperand(operand)
     setResult(calculate(n1,n2,operand))
   }
+
+  const check = () => {
+
+  }
   return (
     <div className="App">
-      {n1} {operand} {n2} = {''} {' '}
+      {n1} {operand} {n2} = {''} {' '} <input type="number" value={answer} onChange={e => setAnswer(+e.target.value)}/>
+      <button onClick={check} >Check</button>
     <hr/>
       <button onClick={shake} >Shake</button>
       <hr/>
