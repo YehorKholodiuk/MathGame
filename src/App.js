@@ -29,6 +29,7 @@ function App() {
   const [n2, setN2] = useState(n2Initial)
   const [answer, setAnswer] = useState()
   const [result, setResult] = useState(calculate(n1Initial,n2Initial,operandInitial))
+  const [resolution, setResolution] = useState('')
 
   const shake = () => {
     const n1 = randomNumber(),  n2 = randomNumber(), operand = getRandomOperand()
@@ -40,13 +41,14 @@ function App() {
   }
 
   const check = () => {
-
+  return answer === result ? setResolution('Correct'):setResolution('inCorrect')
   }
   return (
     <div className="App">
       {n1} {operand} {n2} = {''} {' '} <input type="number" value={answer} onChange={e => setAnswer(+e.target.value)}/>
       <button onClick={check} >Check</button>
     <hr/>
+      {resolution}
       <button onClick={shake} >Shake</button>
       <hr/>
       {result}
